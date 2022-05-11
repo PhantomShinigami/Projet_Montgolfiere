@@ -1,0 +1,39 @@
+const int BATTERYPIN = A0; //pin de la batterie
+
+const float TensionMin = 3.5; //tension min
+const float TensionMax = 7.5; //tension max
+
+void setup() {
+ Serial.begin(9600);
+}
+
+int getBattery ()
+{
+  float b = analogRead(BATTERYPIN); //valeur analogique
+
+  int minValeur = (1023 * TensionMin) / 5; //Arduino
+  int maxValeur = (1023 * TensionMax) / 5; //Arduino
+
+
+  b = ((b - minValeur) / (maxValeur - minValeur)) * 100; //mettre en pourcentage
+
+  if (b < 35)
+  lcd.print("Batterie faible ne demarrer pas le systeme");
+  else if (b > 35)
+  lcd.print ("Vous pouvez demarrer le systeme");
+
+  if (b > 100) //max is 100%
+    b = 100;
+
+
+
+  else if (b < 0) //min is 0%
+    b = 0;
+  int valeur = b;
+  return b;
+}
+
+void loop() {
+  Serial.print(getBattery());
+  delay(1000);
+}
