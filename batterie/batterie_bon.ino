@@ -21,13 +21,13 @@ int getBattery (String message)
   
   float b = analogRead(BATTERYPIN); //valeur analogique
 
-  //int minValeur = (1023 * TensionMin) / 5; //Arduino
-  //int maxValeur = (1023 * TensionMax) / 5; //Arduino
+  int minValeur = (1023 * TensionMin) / 5; //Arduino
+  int maxValeur = (1023 * TensionMax) / 5; //Arduino
 
-  int minValue = (4095 * TensionMin) / 3; //ESP32
-  int maxValue = (4095 * TensionMax) / 3; //ESP32
+  //int minValue = (4095 * TensionMin) / 3; //ESP32
+  //int maxValue = (4095 * TensionMax) / 3; //ESP32
 
-  b = ((b - minValue) / (maxValue - minValue)) * 100; //mettre en pourcentage
+  b = ((b - minValeur) / (maxValeur - minValeur)) * 100; //mettre en pourcentage
 
   
 
