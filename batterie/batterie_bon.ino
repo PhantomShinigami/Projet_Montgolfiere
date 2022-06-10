@@ -1,5 +1,4 @@
 #include <SoftwareSerial.h>
-#include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 
 SoftwareSerial BTSerial(0,1);
