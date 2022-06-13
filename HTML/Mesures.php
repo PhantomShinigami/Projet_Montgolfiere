@@ -44,7 +44,7 @@
 
           $mysqli->set_charset("utf8");
 
-          $result = $mysqli->query("SELECT * FROM ProjetMontgolfiere ORDER BY Date DESC;");
+          $result = $mysqli->query("SELECT * FROM ProjetMontgolfiere ORDER BY Date, Heure DESC;");
 
           echo "<table border='1'>";
           echo "<tr><td>Humidite</td><td>Temperature</td><td>Debit</td><td>Son</td><td>Pression</td><td>Date</td><td>Heure</td></tr>\n";
