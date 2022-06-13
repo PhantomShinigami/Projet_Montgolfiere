@@ -47,9 +47,9 @@
           $result = $mysqli->query("SELECT * FROM ProjetMontgolfiere ORDER BY Date DESC;");
 
           echo "<table border='1'>";
-          echo "<tr><td>Humidite</td><td>Temperature</td><td>Masse</td><td>Son</td><td>Pression</td><td>Date</td><td>Heure</td></tr>\n";
+          echo "<tr><td>Humidite</td><td>Temperature</td><td>Debit</td><td>Son</td><td>Pression</td><td>Date</td><td>Heure</td></tr>\n";
           while ($data = mysqli_fetch_array($result)) {
-            echo "<tr><td>{$data['Humidite']}</td><td>{$data['Temperature']}</td><td>{$data['Masse']}</td><td>{$data['Son']}</td><td>{$data['Pression']}</td><td>{$data['Date']}</td><td>{$data['Heure']}</td></tr>\n";
+            echo "<tr><td>{$data['Humidite']}</td><td>{$data['Temperature']}</td><td>{$data['Debit']}</td><td>{$data['Son']}</td><td>{$data['Pression']}</td><td>{$data['Date']}</td><td>{$data['Heure']}</td></tr>\n";
           }
           echo "</table>";
           ?>
