@@ -1,0 +1,45 @@
+<?php
+
+          $host = '192.168.107.136';
+          $user = 'usersnir2';
+          $pwd = 'projetmontgolfiere';
+          $db = 'projet';
+
+          $mysqli = new mysqli($host, $user, $pwd, $db);
+
+          if (!$mysqli) {
+            echo "Erreur de connexion";
+          }
+
+          $mysqli->set_charset("utf8");
+
+          $result = $mysqli->query("SELECT * FROM ProjetMontgolfiere ORDER BY Date, Heure DESC;");
+
+
+?>
+
+            <?php
+
+            $host = '192.168.107.136';
+            $user = 'root';
+            $pwd = 'adminx';
+            $db = 'projet';
+
+            $mysqli = new mysqli($host, $user, $pwd, $db);
+
+            if (!$mysqli) {
+              echo "Erreur de connexion";
+            }
+
+            $result = $mysqli->query("SELECT * FROM tb_upload");
+
+            echo "<table border='1' width='0%' >";
+            while ($row = mysqli_fetch_array($result)) {
+              echo "<tr>";
+              echo "<td><img src='/image/" . $row['src'] . " 'width=\"200\" height=\"200\"' /></td>";
+              echo "</tr>";
+            }
+            echo "</table>";
+            mysqli_close($con);
+
+            ?>
